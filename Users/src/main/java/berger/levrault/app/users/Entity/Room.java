@@ -1,4 +1,4 @@
-package berger.levrault.app.remoteassistantweb.Entity;
+package berger.levrault.app.users.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,12 +12,10 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-public class User {
+public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String name;
-    private String email;
-    private String password;
-    private String role;
+    private String description;
 }

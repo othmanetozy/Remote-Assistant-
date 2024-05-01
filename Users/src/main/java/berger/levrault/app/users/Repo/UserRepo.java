@@ -1,6 +1,6 @@
-package berger.levrault.app.remoteassistantweb.Repo;
+package berger.levrault.app.users.Repo;
 
-import berger.levrault.app.remoteassistantweb.Entity.User;
+import berger.levrault.app.users.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepo extends JpaRepository<User, Integer> {

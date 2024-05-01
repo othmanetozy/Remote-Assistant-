@@ -1,4 +1,4 @@
-package berger.levrault.app.remoteassistantweb;
+package berger.levrault.app.users;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

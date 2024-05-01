@@ -1,4 +1,4 @@
-package berger.levrault.app.remoteassistantweb;
+package berger.levrault.app.users;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
