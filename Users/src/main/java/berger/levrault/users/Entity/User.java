@@ -1,4 +1,5 @@
-package berger.levrault.app.users.Entity;
+package berger.levrault.users.Entity;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

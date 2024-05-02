@@ -1,10 +1,10 @@
-package berger.levrault.app.users;
+package berger.levrault.users;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RemoteAssistantWebApplicationTests {
+class UsersApplicationTests {
 
     @Test
     void contextLoads() {

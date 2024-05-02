@@ -1,12 +1,13 @@
-package berger.levrault.app.users;
+package berger.levrault.users;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RemoteAssistantWebApplication {
+public class UsersApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RemoteAssistantWebApplication.class, args);
+        SpringApplication.run(UsersApplication.class, args);
     }
+
 }
