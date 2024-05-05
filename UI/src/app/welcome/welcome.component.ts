@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
+import {MatCard, MatCardContent, MatCardModule, MatCardTitle} from "@angular/material/card";
 
 @Component({
   selector: 'app-welcome',
@@ -7,6 +7,7 @@ import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
   imports: [
     MatCard,
     MatCardContent,
+    MatCardModule,
     MatCardTitle
   ],
   templateUrl: './welcome.component.html',
