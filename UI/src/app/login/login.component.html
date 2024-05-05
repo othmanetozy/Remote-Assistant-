@@ -1,11 +1,12 @@
+<body>
 <div class="container py-10">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h2 class="panel-title text-center">Welcome</h2>
+      <div class="card">
+        <div class="card-header text-center">
+          <h1 class="panel-title p-4">Welcome Back</h1>
         </div>
-        <div class="panel-body">
+        <div class="card-body">
           <form class="form-horizontal"
                 #userLogin="ngForm"
                 (ngSubmit)="userLogin.form.valid && onSubmit()" novalidate>
@@ -30,17 +31,17 @@
             <br/>
 
             <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10 panel-title text-center">
+              <div class="col-sm-offset-2 col-sm-10 text-center">
                 <button type="submit" class="btn btn-primary">SIGN IN</button>
               </div>
             </div>
             <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-20 panel-title text-center">
+              <div class="col-sm-offset-2 col-sm-10 text-center">
                 <button type="button" class="btn btn-primary" (click)="signInWithGoogle()">Login with Google</button>
               </div>
             </div>
-            <div class="form-group">
-              <div class="col-sm-offset-20 col-sm-10">
+            <div class="form-group text-center">
+              <div class="col-sm-offset-2 col-sm-10">
                 <a href="" [routerLink]="['/']">Don't have an account?</a>
               </div>
             </div>
@@ -50,3 +51,4 @@
     </div>
   </div>
 </div>
+</body>
