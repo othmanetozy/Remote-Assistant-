@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-10">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="panel panel-default">
@@ -10,7 +10,7 @@
                 #userLogin="ngForm"
                 (ngSubmit)="userLogin.form.valid && onSubmit()" novalidate>
 
-            <h5>Sign in with your credentials below.</h5>
+            <h5 class="panel-title text-center">Sign in with your credentials below.</h5>
             <div class="form-group"
                  [ngClass]="{ 'has-error':userLogin.submitted && !email.valid }">
               <label class="control-label col-sm-2"></label>
@@ -30,12 +30,12 @@
             <br/>
 
             <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
+              <div class="col-sm-offset-2 col-sm-10 panel-title text-center">
                 <button type="submit" class="btn btn-primary">SIGN IN</button>
               </div>
             </div>
             <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-20">
+              <div class="col-sm-offset-2 col-sm-20 panel-title text-center">
                 <button type="button" class="btn btn-primary" (click)="signInWithGoogle()">Login with Google</button>
               </div>
             </div>
