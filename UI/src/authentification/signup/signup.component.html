@@ -47,6 +47,12 @@
                   </button>
                 </div>
               </div>
+<!--              <div style="text-align: right;">-->
+<!--                <h3 class="panel-title m-3 p-lg-2" style="margin-left:10px; margin-top: 10px;">I accept the terms and conditions.</h3>-->
+<!--              </div>-->
+              <section class="section">
+                <mat-checkbox class="example-margin" [disabled]="false">I accept the terms and conditions.</mat-checkbox>
+              </section>
             </div>
 
 <!--            <div *ngIf="errorMsg">-->
@@ -55,7 +61,7 @@
             <br/>
             <!--Boutton-->
             <div class="form-group p-2 m-10">
-              <div class="col-sm-offset-2 col-sm-16 text-center">
+              <div class="col-sm-offset-2 col-sm-17 text-center">
                 <button type="submit" class="btn btn-primary">CREATE ACCOUNT</button>
               </div>
             </div>

@@ -3,6 +3,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgClass} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {style} from "@angular/animations";
+import {MatCheckbox} from "@angular/material/checkbox";
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,8 @@ import {style} from "@angular/animations";
     FormsModule,
     ReactiveFormsModule,
     NgClass,
-    RouterLink
+    RouterLink,
+    MatCheckbox
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
