@@ -5,6 +5,7 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatInput} from "@angular/material/input";
 import {NgClass} from "@angular/common";
+import {style} from "@angular/animations";
 
 @Component({
   selector: 'app-login',
@@ -63,4 +64,6 @@ export class LoginComponent implements OnInit{
     this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
     passwordInput.type = this.passwordFieldType;
   }
+
+  protected readonly style = style;
 }

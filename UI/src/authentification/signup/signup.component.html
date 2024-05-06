@@ -1,4 +1,4 @@
-<body>
+<body xmlns:cursor="http://www.w3.org/1999/xhtml">
 <div class="container py-10">
   <div class="row justify-content-center">
     <div class="col-md-5">
@@ -52,9 +52,6 @@
 <!--            <div *ngIf="errorMsg">-->
 <!--              {{errorMsg}}-->
 <!--            </div>-->
-            <div style="text-align: right;">
-              <h6 class="panel-title p-1 m-0 mt-1">Forgot Password?</h6>
-            </div>
             <br/>
             <!--Boutton-->
             <div class="form-group p-2 m-10">
@@ -62,11 +59,14 @@
                 <button type="submit" class="btn btn-primary">CREATE ACCOUNT</button>
               </div>
             </div>
-<!--            <div class="form-group text-center">-->
-<!--              <div class="col-sm-offset-2 col-sm-13">-->
-<!--                <a href="" [routerLink]="['/signup']">Don't have an account?</a>-->
-<!--              </div>-->
-<!--            </div>-->
+            <div class="col-sm-offset-2 col-sm-16 text-center">
+              <h4 class="panel-title p-1 m-2">Already have an account?</h4>
+            </div>
+            <div class="form-group text-center">
+              <div class="col-sm-offset-2 col-sm-13">
+                <a href="" [routerLink]="['/login']" style="cursor: pointer;">Sign in here</a>
+              </div>
+            </div>
           </form>
         </div>
       </div>
