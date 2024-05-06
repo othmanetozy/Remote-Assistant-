@@ -5,14 +5,19 @@
       <div class="card">
         <div class="card-header text-center">
           <img src="/assets/BL.png" class="img-fluid custom-img p-0 mt-4">
-          <h1 class="panel-title p-4 m-1 mt-2">Welcome Back</h1>
+          <h1 class="panel-title p-4 m-1 mt-2">Register for an account</h1>
         </div>
         <div class="card-body">
           <form class="form-horizontal"
                 #userLogin="ngForm"
                 (ngSubmit)="userLogin.form.valid && onSubmit()" novalidate>
-
-            <h5 class="panel-title text-center m-1">Sign in with your credentials below.</h5>
+            <h5 class="panel-title text-center m-1">Simply fill out the form below.</h5>
+            <div class="form-group">
+              <label class="control-label col-sm-2"></label>
+              <div class="col-sm-8 m-0 mx-auto text-center">
+                <input type="text" class="form-control m-lg-1" [(ngModel)]="user.name" required #name="ngModel" placeholder="Name*">
+              </div>
+            </div>
             <div class="form-group"
                  [ngClass]="{ 'has-error':userLogin.submitted && !email.valid }">
 
@@ -30,12 +35,23 @@
                     <i class="fa fa-eye" aria-hidden="true"></i>
                   </button>
                 </div>
-                <h5 class="panel-title p-1 m-0 mt-1">Click the eye to toggle visibility</h5>
               </div>
             </div>
-            <div *ngIf="errorMsg">
-              {{errorMsg}}
+            <div class="form-group" [ngClass]="{ 'has-error':userLogin.submitted && !password.valid }">
+              <label class="control-label col-sm-2" ></label>
+              <div class="col-sm-8 m-0 mx-auto text-center">
+                <div class="position-relative">
+                  <input type="password" class="form-control m-lg-1 pr-5" [(ngModel)]="user.password" required #password="ngModel" placeholder="Password(confirm)*">
+                  <button class="btn btn-outline-secondary border-0 position-absolute" style="right: 5px; top: 50%; transform: translateY(-50%);" type="button" (click)="togglePasswordVisibility()">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
             </div>
+
+<!--            <div *ngIf="errorMsg">-->
+<!--              {{errorMsg}}-->
+<!--            </div>-->
             <div style="text-align: right;">
               <h6 class="panel-title p-1 m-0 mt-1">Forgot Password?</h6>
             </div>
@@ -43,19 +59,14 @@
             <!--Boutton-->
             <div class="form-group p-2 m-10">
               <div class="col-sm-offset-2 col-sm-16 text-center">
-                <button type="submit" class="btn btn-primary">SIGN IN</button>
+                <button type="submit" class="btn btn-primary">CREATE ACCOUNT</button>
               </div>
             </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-13 text-center">
-                <button type="button" class="btn btn-primary" (click)="signInWithGoogle()">Login with Google</button>
-              </div>
-            </div>
-            <div class="form-group text-center">
-              <div class="col-sm-offset-2 col-sm-13">
-                <a href="" [routerLink]="['signup']">Don't have an account?</a>
-              </div>
-            </div>
+<!--            <div class="form-group text-center">-->
+<!--              <div class="col-sm-offset-2 col-sm-13">-->
+<!--                <a href="" [routerLink]="['/signup']">Don't have an account?</a>-->
+<!--              </div>-->
+<!--            </div>-->
           </form>
         </div>
       </div>
