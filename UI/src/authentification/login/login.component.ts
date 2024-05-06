@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader, MatCardModule} from "@angular/material/card";
 import {RouterLink} from "@angular/router";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit{
   user = {email: "email", password: "password"};
   errorMsg: null = null;
   googleUser = {};
+  passwordFieldType = "password";
 
+  constructor(private elementRef: ElementRef) {}
   ngOnInit() {
 
   }
@@ -54,5 +56,11 @@ export class LoginComponent implements OnInit{
 
   signInWithGoogle() {
 
+  }
+
+  togglePasswordVisibility() {
+    const passwordInput = this.elementRef.nativeElement.querySelector('input[type="password"]');
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
+    passwordInput.type = this.passwordFieldType;
   }
 }

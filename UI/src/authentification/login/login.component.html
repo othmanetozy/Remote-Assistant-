@@ -24,7 +24,14 @@
             <div class="form-group" [ngClass]="{ 'has-error':userLogin.submitted && !password.valid }">
               <label class="control-label col-sm-2" ></label>
               <div class="col-sm-8 m-0 mx-auto text-center">
-                <input type="password" class="form-control m-lg-1" [(ngModel)]="user.password" required #password="ngModel" placeholder="Password*">
+                <div class="input-group">
+                  <input type="password" class="form-control m-lg-1" [(ngModel)]="user.password" required #password="ngModel" placeholder="Password*">
+                  <button class="btn btn-outline-secondary border-0" type="button" (click)="togglePasswordVisibility()">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                  </button>
+                  <div class="input-group-append">
+                  </div>
+                </div>
               </div>
             </div>
             <div *ngIf="errorMsg">
@@ -32,8 +39,8 @@
             </div>
             <br/>
             <!--Boutton-->
-            <div class="form-group p-2 m-9">
-              <div class="col-sm-offset-2 col-sm-13 text-center">
+            <div class="form-group p-2 m-10">
+              <div class="col-sm-offset-2 col-sm-16 text-center">
                 <button type="submit" class="btn btn-primary">SIGN IN</button>
               </div>
             </div>
