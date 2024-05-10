@@ -21,5 +21,16 @@ public class MessageService {
         return messageRepo.findById(id).orElse(null);
     }
 
+    public Message SaveMesage(Message message) {
+        try{
+            if (message.getId() == null || message.getContent().isEmpty()) {
+                throw new IllegalArgumentException("Message vide");
+            }
+            return messageRepo.save(message);
+        }
+        catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
 
 }
