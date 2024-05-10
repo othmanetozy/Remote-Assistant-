@@ -1,4 +1,4 @@
-package berger.levrault.message.Entity;
+package berger.levrault.app.message.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;

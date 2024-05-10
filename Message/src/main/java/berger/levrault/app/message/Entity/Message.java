@@ -1,17 +1,15 @@
-package berger.levrault.message.Entity;
+package berger.levrault.app.message.Entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.*;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 @Table
 @Builder
 public class Message {
@@ -24,5 +22,4 @@ public class Message {
     @Temporal(TemporalType.TIMESTAMP)
     private Date sentAt;
     private Conversation conversation;
-
 }
