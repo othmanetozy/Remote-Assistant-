@@ -1,4 +1,4 @@
-package berger.levrault.app.message;
+package berger.levrault.message;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
