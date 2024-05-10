@@ -2,9 +2,10 @@ package berger.levrault.app.message.entity;
 import berger.levrault.app.message.Enum.MessageType;
 
 
-import jakarta.persistence.*;
+
 import lombok.*;
 
+import javax.persistence.*;
 import java.util.Date;
 
 

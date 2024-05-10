@@ -30,7 +30,7 @@ public class MessageController {
         List<String> recipientUserIds = identifyRecipientUserIds(message);
         for (String recipientUserId : recipientUserIds) {
             if (!message.getSenderId().equals(senderUserID)) {
-                sendMessageToUser(message,recipientUserId);
+                sendMessageToUser(message, recipientUserId);
             }
         }
         return message;
