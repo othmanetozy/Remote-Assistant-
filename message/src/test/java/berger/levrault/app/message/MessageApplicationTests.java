@@ -1,4 +1,4 @@
-package berger.levrault.message;
+package berger.levrault.app.message;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
