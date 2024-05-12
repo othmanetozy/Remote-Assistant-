@@ -10,6 +10,7 @@
         <option value="$USER_HOME$/Downloads/message/pom.xml" />
         <option value="$PROJECT_DIR$/Message/pom.xml" />
         <option value="$PROJECT_DIR$/message/pom.xml" />
+        <option value="$PROJECT_DIR$/Authentication/pom.xml" />
       </list>
     </option>
   </component>
