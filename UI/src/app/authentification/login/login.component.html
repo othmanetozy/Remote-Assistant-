@@ -39,12 +39,14 @@
               <h6 class="panel-title p-1 m-0 mt-1">Forgot Password?</h6>
             </div>
             <br/>
-            <!--Boutton-->
+
+            <!----------------Boutton-------------->
             <div class="form-group p-2 m-10">
               <div class="col-sm-offset-2 col-sm-16 text-center">
-                <button type="submit" class="btn btn-primary">SIGN IN</button>
+                <button type="button" class="btn btn-primary" (click)="navigateToDashboard()">SIGN IN</button>
               </div>
             </div>
+
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-13 text-center">
                 <button type="button" class="btn btn-primary" (click)="signInWithGoogle()">Login with Google</button>

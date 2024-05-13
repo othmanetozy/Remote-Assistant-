@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader, MatCardModule} from "@angular/material/card";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatInput} from "@angular/material/input";
@@ -32,27 +32,13 @@ export class LoginComponent implements OnInit{
   googleUser = {};
   passwordFieldType = "password";
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef,private router:Router) {}
   ngOnInit() {
 
   }
 
-  // signInWithGoogle() {
-  //   this.userService.signInWithGoogle();
-  // }
-
   onSubmit() {
     console.log("email: " + this.user.email + " and password: " + this.user.password);
-    // this.userService.login(this.user.email, this.user.password)
-    //   .subscribe(
-    //     response => {
-    //       // doing logic with responce
-    //     }
-    //     ,
-    //     error => {
-    //       this.errorMsg = <any>error["message"];
-    //     }
-    //   );
   }
 
   signInWithGoogle() {
@@ -66,4 +52,8 @@ export class LoginComponent implements OnInit{
   }
 
   protected readonly style = style;
+
+  navigateToDashboard() {
+    this.router.navigate(['/dashboard']);
+  }
 }

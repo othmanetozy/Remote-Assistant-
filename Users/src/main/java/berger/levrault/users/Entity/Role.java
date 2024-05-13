@@ -14,11 +14,12 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Getter
+@Table(name = "\"Role\"")
 @Setter
 @EntityListeners(AuditingEntityListener.class)
 public class Role {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Integer id;
     @Column(unique = true)
