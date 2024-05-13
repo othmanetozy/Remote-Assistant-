@@ -34,13 +34,15 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests(req -> req.requestMatchers(
                         "/v1/new/users",
-                        "/auth/**"
+                        "/auth/**",
+                        "auth/register"
                         ).permitAll()
                             .anyRequest()
                         .authenticated()
                 )
                 .sessionManagement(session ->session.sessionCreationPolicy(STATELESS))
-                .authenticationProvider(authenticationProvider)
+                .authenticationProvider((org.springframework.security.authentication.AuthenticationProvider) authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
     }
 }

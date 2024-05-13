@@ -6,7 +6,6 @@ import berger.levrault.users.Repo.RoleRepo;
 import berger.levrault.users.Repo.TokenRepo;
 import berger.levrault.users.Repo.UserRepo;
 import berger.levrault.users.security.Token;
-import lombok.var;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -53,7 +52,7 @@ public class LoginService {
                 .user(user)
                 .build();
         tokenRepo.save(token);
-        return null;
+        return generatedToken;
     }
 
     private String generateActivateCode(int lenght) {
