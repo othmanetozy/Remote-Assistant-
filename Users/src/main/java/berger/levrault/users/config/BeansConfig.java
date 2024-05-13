@@ -1,7 +1,5 @@
 package berger.levrault.users.config;
 
-
-import com.mysql.cj.protocol.AuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,11 +15,11 @@ public class BeansConfig {
     private final UserDetailsService userDetailsService;
 
     @Bean
-    public AuthenticationProvider authenticationProvider() {
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService);
         authProvider.setPasswordEncoder(passwordEncoder());
-        return (AuthenticationProvider) authProvider;
+        return authProvider;
     }
 
     @Bean
@@ -29,4 +27,3 @@ public class BeansConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
