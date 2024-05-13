@@ -1,0 +1,20 @@
+server:
+  port: 8089
+
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/user
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: create
+
+# Jwt
+jwt:
+  secret-key: DdTZVdCtGTHiaESn/3q8bFtf4VpE6M0Lgj84e7J4FDk=
+  expiration: 8630000
