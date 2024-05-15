@@ -4,8 +4,7 @@ import {Router, RouterLink} from "@angular/router";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatInput} from "@angular/material/input";
-import {NgClass} from "@angular/common";
-import {style} from "@angular/animations";
+import {CommonModule, NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-login',
@@ -21,7 +20,8 @@ import {style} from "@angular/animations";
     ReactiveFormsModule,
     FormsModule,
     MatInput,
-    NgClass
+    NgClass,
+    CommonModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -51,9 +51,4 @@ export class LoginComponent implements OnInit{
     passwordInput.type = this.passwordFieldType;
   }
 
-  protected readonly style = style;
-
-  navigateToDashboard() {
-    this.router.navigate(['/dashboard']);
-  }
 }

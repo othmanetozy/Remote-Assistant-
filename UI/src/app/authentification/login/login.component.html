@@ -32,9 +32,6 @@
                 <h5 class="panel-title p-1 m-0 mt-1">Click the eye to toggle visibility</h5>
               </div>
             </div>
-            <div *ngIf="errorMsg">
-              {{errorMsg}}
-            </div>
             <div style="text-align: right;">
               <h6 class="panel-title p-1 m-0 mt-1">Forgot Password?</h6>
             </div>
@@ -43,7 +40,7 @@
             <!----------------Boutton-------------->
             <div class="form-group p-2 m-10">
               <div class="col-sm-offset-2 col-sm-16 text-center">
-                <button type="button" class="btn btn-primary" (click)="navigateToDashboard()">SIGN IN</button>
+                <button type="button" class="btn btn-primary" [routerLink]="['/dashboard']">SIGN IN</button>
               </div>
             </div>
 
