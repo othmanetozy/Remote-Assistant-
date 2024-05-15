@@ -1,23 +1,36 @@
-<mat-toolbar color="primary">
+<body class="custom-background">
+<mat-toolbar color="accent">
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
   <span class="example-spacer"></span>
-  <h1 class="example-app-name">Berger Call</h1>
+  <a class="navbar-brand d-flex" href="index.html">
+    <img src="assets/BL.png" alt="BL Call" class="image-fluid" />
+  </a>
+  <span class="m-lg-auto">
+    <button mat-icon-button>
+    <mat-icon>search</mat-icon>
+    </button>
+  </span>
+  <span class="m-lg-auto">
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
+  </span>
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosize>
   <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
     <mat-nav-list>
-      <div mat-subheader="" class="mat-mdc-subheader mdc-list-group__subheader nav-caption ng-star-inserted">Home</div>
+      <div mat-subheader="" class="mat-mdc-subheader mdc-list-group__subheader nav-caption ng-star-inserted">HOME</div>
       <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
         <span class="full-width align-right" *ngIf="isExpanded || isShowing" style="font-size: 90px;">
-          <mat-icon mat-list-icon style="margin-right: 40px;margin-left: 30px">home</mat-icon>
+          <mat-icon mat-list-FAB style="margin-right: 40px;margin-left: 30px">home</mat-icon>
         </span>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
       </mat-list-item>
       <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
-        <a mat-list-item href="...">Submenu Item 1</a>
-        <a mat-list-item href="...">Submenu Item 2</a>
+        <a mat-list-item href="...">test</a>
+        <a mat-list-item href="...">test</a>
         <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
           <mat-list-item>SubSubmenu Item 1</mat-list-item>
           <mat-list-item>SubSubmenu Item 2</mat-list-item>
@@ -28,11 +41,5 @@
     </mat-nav-list>
   </mat-sidenav>
 </mat-sidenav-container>
+</body>
 
-
-<!--<div class="example-sidenav-content">-->
-<!--  <mat-toolbar color="primary" class="example-toolbar">-->
-<!--    <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>-->
-<!--    <h1 class="app-name">Berger Call</h1>-->
-<!--  </mat-toolbar>-->
-<!--</div>-->

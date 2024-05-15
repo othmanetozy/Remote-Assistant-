@@ -8,7 +8,10 @@
 .example-sidenav {
   user-select: none;
 }
-
+.image-fluid {
+  width: 10%;
+  height: auto;
+}
 .full-width {
   width: 100%;
 }
@@ -36,4 +39,11 @@
 
 .submenu.expanded {
   transform: scaleY(1);
+}
+.mat-toolbar {
+  background-color: #7D7C7C;
+  color: white;
+}
+body.custom-background {
+  background-color: red;
 }
