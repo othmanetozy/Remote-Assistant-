@@ -1,12 +1,22 @@
+*{
+}
+.example-container{
+  background-color:#EEF3F8 ;
+}
+.example-sidenav{
+  background-color: white;
+  width: 23vh;
+}
 .mat-sidenav-container {
-  height: 931px;
+  height: 100vh;
   border: 1px solid rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 0;
 }
-
-.example-sidenav {
-  user-select: none;
+.m-lg-auto{
+  color: black;
+  justify-content: space-evenly;
+  margin: 500px;
 }
 .image-fluid {
   width: 10%;
@@ -17,7 +27,7 @@
 }
 
 .parent {
-  font-size: 30px;
+  font-size: 70px;
 }
 
 .menu-button {
@@ -34,16 +44,18 @@
   transition: transform 300ms ease;
   transform: scaleY(0);
   transform-origin: top;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 
 .submenu.expanded {
   transform: scaleY(1);
 }
 .mat-toolbar {
-  background-color: #7D7C7C;
-  color: white;
+  background-color: #d6dadf;
+  color: black;
 }
-body.custom-background {
-  background-color: red;
+.mat-mdc-subheader{
+
 }
+
+
