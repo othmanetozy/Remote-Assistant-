@@ -1,11 +1,11 @@
-version: '3'
+version: '3.8'
 
 services:
   mysql:
     image: mysql:latest
     container_name: mysql_db
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: user
@@ -13,6 +13,8 @@ services:
       MYSQL_PASSWORD: admin
     volumes:
       - mysql_data:/var/lib/mysql
+
+
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.1.1
@@ -26,12 +28,30 @@ services:
     depends_on:
       - mysql
 
+  keycloak:
+    container_name: keycloak-bsn
+    image: quay.io/keycloak/keycloak:24.0.2
+    ports:
+      - "9090:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    command:
+      - start-dev
+
+
   maildev:
     container_name: mail-dev-bsn
     image: maildev/maildev
     ports:
       - "1080:1080"
       - "1025:1025"
+    command:
+      - "start-dev"
+
+
+
+
 
 volumes:
   mysql_data:

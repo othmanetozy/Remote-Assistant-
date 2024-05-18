@@ -19,8 +19,10 @@ public class LoginService {
     private final TokenRepo tokenRepo;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepo roleRepo;
-
     private final UserRepo userRepo;
+    //private final EmailService emailService;
+
+
 
     public LoginService(TokenRepo tokenRepo, PasswordEncoder passwordEncoder, RoleRepo roleRepo, UserRepo userRepo) {
         this.tokenRepo = tokenRepo;
@@ -40,6 +42,11 @@ public class LoginService {
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(List.of(userRole).toString());
         userRepo.save(user);
+        sendValidationEmail(user);
+    }
+
+    private void sendValidationEmail(User user) {
+        var newToken = generateAndSaveActionToken(user);
     }
 
 
