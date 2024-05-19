@@ -2,6 +2,8 @@ package berger.levrault.users.Controllers;
 
 import berger.levrault.users.Dtos.UserDto;
 import berger.levrault.users.Services.LoginService;
+import jakarta.mail.MessagingException;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +21,7 @@ public class LoginController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity<?> register(@RequestBody UserDto request){
+    public ResponseEntity<?> register(@RequestBody @Valid UserDto request) throws MessagingException {
         loginService.register(request);
         return ResponseEntity.accepted().build();
     }

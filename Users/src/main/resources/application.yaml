@@ -5,7 +5,7 @@ spring:
   main:
     allow-circular-references: true
   datasource:
-    url: jdbc:mysql://localhost:3306/user
+    url: jdbc:mysql://localhost:3307/user
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
@@ -13,8 +13,28 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: create
+  mail:
+    host: localhost
+    port: 1025
+    username: root
+    password: root
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enabled: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
 
 # Jwt
 jwt:
-  secret-key: DdTZVdCtGTHiaESn/3q8bFtf4VpE6M0Lgj84e7J4FDk=
-  expiration: 8630000
+      secret-key: DdTZVdCtGTHiaESn/3q8bFtf4VpE6M0Lgj84e7J4FDk=
+      expiration: 8630000
+
+mailing:
+    frontend:
+      activation-url: http://localhost:4200/activation-account

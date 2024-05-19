@@ -2,10 +2,13 @@ package berger.levrault.users.Services;
 
 import berger.levrault.users.Dtos.UserDto;
 import berger.levrault.users.Entity.User;
+import berger.levrault.users.Enum.EmailTemplateName;
 import berger.levrault.users.Repo.RoleRepo;
 import berger.levrault.users.Repo.TokenRepo;
 import berger.levrault.users.Repo.UserRepo;
 import berger.levrault.users.security.Token;
+import jakarta.mail.MessagingException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,18 +23,22 @@ public class LoginService {
     private final PasswordEncoder passwordEncoder;
     private final RoleRepo roleRepo;
     private final UserRepo userRepo;
-    //private final EmailService emailService;
+
+    private final EmailService emailService;
+
+    @Value("${mailing.frontend.activation-url}")
+    private String activationUrl;
 
 
-
-    public LoginService(TokenRepo tokenRepo, PasswordEncoder passwordEncoder, RoleRepo roleRepo, UserRepo userRepo) {
+    public LoginService(TokenRepo tokenRepo, PasswordEncoder passwordEncoder, RoleRepo roleRepo, UserRepo userRepo, EmailService emailService) {
         this.tokenRepo = tokenRepo;
         this.passwordEncoder = passwordEncoder;
         this.roleRepo = roleRepo;
         this.userRepo = userRepo;
+        this.emailService = emailService;
     }
 
-    public void register(UserDto request) {
+    public void register(UserDto request) throws MessagingException {
         var userRole = roleRepo.findByName("USER")
                 .orElseThrow(()->new IllegalStateException("User not found"));
 
@@ -45,8 +52,15 @@ public class LoginService {
         sendValidationEmail(user);
     }
 
-    private void sendValidationEmail(User user) {
+    private void sendValidationEmail(User user) throws MessagingException {
         var newToken = generateAndSaveActionToken(user);
+        emailService.sendEmail(
+                user.getEmail(),
+                user.getUsername(),
+                EmailTemplateName.ACTIVATE_ACCOUNT,
+                activationUrl,
+                newToken,"Account activated"
+        );
     }
 
 
