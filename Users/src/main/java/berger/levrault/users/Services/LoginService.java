@@ -1,19 +1,24 @@
 package berger.levrault.users.Services;
 
+import berger.levrault.users.Dtos.AuthenticationResponsedto;
+import berger.levrault.users.Dtos.Authenticationrequestdto;
 import berger.levrault.users.Dtos.UserDto;
 import berger.levrault.users.Entity.User;
 import berger.levrault.users.Enum.EmailTemplateName;
 import berger.levrault.users.Repo.RoleRepo;
 import berger.levrault.users.Repo.TokenRepo;
 import berger.levrault.users.Repo.UserRepo;
-import berger.levrault.users.security.Token;
+import berger.levrault.users.Entity.Token;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -23,19 +28,22 @@ public class LoginService {
     private final PasswordEncoder passwordEncoder;
     private final RoleRepo roleRepo;
     private final UserRepo userRepo;
-
     private final EmailService emailService;
+    private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
 
     @Value("${mailing.frontend.activation-url}")
     private String activationUrl;
 
 
-    public LoginService(TokenRepo tokenRepo, PasswordEncoder passwordEncoder, RoleRepo roleRepo, UserRepo userRepo, EmailService emailService) {
+    public LoginService(TokenRepo tokenRepo, PasswordEncoder passwordEncoder, RoleRepo roleRepo, UserRepo userRepo, EmailService emailService, AuthenticationManager authenticationManager, JwtService jwtService) {
         this.tokenRepo = tokenRepo;
         this.passwordEncoder = passwordEncoder;
         this.roleRepo = roleRepo;
         this.userRepo = userRepo;
         this.emailService = emailService;
+        this.authenticationManager = authenticationManager;
+        this.jwtService = jwtService;
     }
 
     public void register(UserDto request) throws MessagingException {
@@ -85,5 +93,21 @@ public class LoginService {
             codeBuilder.append(characters.charAt(randomIndex));
         }
         return codeBuilder.toString();
+    }
+
+    public AuthenticationResponsedto authenticate(Authenticationrequestdto request) {
+        var auth = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        request.getEmail(),
+                        request.getPassword()
+                )
+        );
+        var claims = new HashMap<String , Object>();
+        var user =((User)auth.getPrincipal());
+        claims.put("Username" , user.getUsername());
+        var jwtToken = jwtService.generateToken(claims , user);
+        return AuthenticationResponsedto.builder()
+                .Token(jwtToken)
+                .build();
     }
 }

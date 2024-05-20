@@ -1,4 +1,4 @@
-package berger.levrault.users.security;
+package berger.levrault.users.Entity;
 
 import berger.levrault.users.Entity.User;
 import jakarta.persistence.*;

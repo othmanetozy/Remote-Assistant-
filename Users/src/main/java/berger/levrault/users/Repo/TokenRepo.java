@@ -1,6 +1,6 @@
 package berger.levrault.users.Repo;
 
-import berger.levrault.users.security.Token;
+import berger.levrault.users.Entity.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

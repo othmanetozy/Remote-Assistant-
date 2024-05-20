@@ -1,7 +1,8 @@
 package berger.levrault.users.Controllers;
 
+import berger.levrault.users.Dtos.AuthenticationResponsedto;
 import berger.levrault.users.Dtos.UserDto;
-import berger.levrault.users.Services.impl.Authenticationrequest;
+import berger.levrault.users.Dtos.Authenticationrequestdto;
 import berger.levrault.users.Services.LoginService;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
@@ -25,8 +26,8 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthenticationResponse> authenticate(
-            @RequestBody @Valid Authenticationrequest request){
+    public ResponseEntity<AuthenticationResponsedto> authenticate(
+            @RequestBody @Valid Authenticationrequestdto request){
         return ResponseEntity.ok(loginService.authenticate(request));
     }
 }

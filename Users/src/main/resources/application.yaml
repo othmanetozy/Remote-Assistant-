@@ -30,11 +30,11 @@ spring:
           writetimeout: 5000
 
 
-# Jwt
+#Jwt
 jwt:
       secret-key: DdTZVdCtGTHiaESn/3q8bFtf4VpE6M0Lgj84e7J4FDk=
       expiration: 8630000
-
+#MAIL
 mailing:
     frontend:
       activation-url: http://localhost:4200/activation-account

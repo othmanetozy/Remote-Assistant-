@@ -1,4 +1,4 @@
-package berger.levrault.users.Services;
+package berger.levrault.users.Services.impl;
 
 import berger.levrault.users.Repo.UserRepo;
 import jakarta.transaction.Transactional;
