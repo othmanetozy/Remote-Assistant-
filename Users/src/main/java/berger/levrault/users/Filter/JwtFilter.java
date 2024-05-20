@@ -1,5 +1,6 @@
-package berger.levrault.users.security;
+package berger.levrault.users.Filter;
 
+import berger.levrault.users.Services.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

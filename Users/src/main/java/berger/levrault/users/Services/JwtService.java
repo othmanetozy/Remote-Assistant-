@@ -1,4 +1,4 @@
-package berger.levrault.users.security;
+package berger.levrault.users.Services;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
